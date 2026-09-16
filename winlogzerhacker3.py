@@ -67,13 +67,13 @@ def splitforprocess(filename):
 def loadthedata(instrument):
     innen = 0
     detnumber = 5
-    filename = filedialog.askopenfilename(initialdir = "C:/Users/AK126086/Documents/Verwaltung/Logdata/2025/",title = "Select a File",filetypes = (("CSV files","*.csv*"),("all files","*.*")))
+    filename = filedialog.askopenfilename(initialdir = "C:/",title = "Select a File",filetypes = (("CSV files","*.csv*"),("all files","*.*")))
     print ("loaded file: ",filename,"\n")
     with open(filename) as data_file:
         data_reader = csv.reader(data_file, delimiter=',')
         fields = next(data_reader)
-        #if instrument=="LSM900":
-        #    detnumber = 5
+        if instrument=="LSM900":
+            detnumber = 5
         for row in data_reader:
             innen +=1
             datatime.append(row[1])
